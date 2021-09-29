@@ -1,17 +1,17 @@
 package com.cogent.EmployeeManagementSystem.service;
+
+import java.io.IOException;
+
+import com.cogent.EmployeeManagementSystem.exception.IdNotFoundException;
 import com.cogent.EmployeeManagementSystem.model.Employee;
-import com.cogent.EmployeeManagementSystem.repository.EmployeeRepository;
 
-public class EmployeeService {
-	EmployeeRepository employeeRepository = EmployeeRepository.getInstance();
-	
+public interface EmployeeService {
+	public String addEmployee(Employee employee);
+	public String deleteEmployeeById(String id);
+	public void deleteAllEmployees();
+	public Employee getEmployeeById(String id) throws IdNotFoundException, IOException;
+	public Employee[] getEmployeeByName(String name);
+	public Employee[] getEmployees();
+	public String updateEmployee(String id,Employee employee);
 
-	public String addEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return employeeRepository.addEmployee(employee);
-	}
-	public Employee getEmployeeById(String id)
-	{
-		return employeeRepository.getEmployeeById(id);
-	}
 }
